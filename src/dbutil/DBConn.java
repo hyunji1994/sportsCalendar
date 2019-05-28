@@ -1,4 +1,4 @@
-package web.dbutil;
+package dbutil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
