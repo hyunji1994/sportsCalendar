@@ -50,7 +50,7 @@ bottom-up 방식으로 축구경기를 통해 우리가 가져올 수 있는 데
 ## Web Pages
 
 - Main Page
-  - Login (pop up)
+  - Login (modal pop-up)
   - Signup
 - About - company
 - My page - user
