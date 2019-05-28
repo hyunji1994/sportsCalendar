@@ -4,30 +4,29 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConn {
-	// DB 연결 정보
+public class DBconn {
+	
 	private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
 	private static final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-	private static final String USERNAME = "semi";
-	private static final String PASSWORD = "project";
-
-	// DB 연결 객체
-	private static Connection conn = null; //연결객체
+	private static final String USERNAME = "scott";
+	private static final String PASSWORD = "tiger";
 	
-	// private 생성자
-	private DBConn() { }
+	//	DB 연결객체
+	private static Connection conn = null;
 	
-	// Connection 객체 반환 - Singleton Pattern
+	//	private 생성자 - 외부생성 불가
+	private DBconn() { }
+	
+	//Connection 객체 반환 - Singleton Pattern 유지
 	public static Connection getConnection() {
-
-		// DB 연결이 안되어있을 때만 동작
-		if( conn == null ) {
+		
+		//	DB연결된 적이 없을 경우
+		if (conn == null) {
 			try {
-				Class.forName(DRIVER); //드라이버로드
+				Class.forName(DRIVER);	//	드라이버 로드
 				
-				// DB 연결객체 생성
+				//DB 연결객체 생성
 				conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
@@ -35,8 +34,7 @@ public class DBConn {
 			}
 		}
 		
-		return conn; // DB 연결객체 반환
+		return conn;	//	DB연결객체 반환
 	}
-	
-}
 
+}
